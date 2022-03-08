@@ -1,0 +1,104 @@
+undefined
+
+const express = require("express");
+const fs = require("fs");
+const getJson=require('./get.json');
+const postJson=require('./post.json');
+
+//setting up the express router
+const app = express();
+
+app.use(express.json());
+app.get("/view?id=2", (req, res) => {
+  const result=getJson.filter((data)=>{
+   if(data.id==2){
+    return data
+   }
+ })
+ 
+ res.json(result);
+ res.status(200)
+
+});
+app.get("/view", (req, res) => {
+
+
+ 
+  
+ op.push(result)
+ res.send(op);
+ res.status(200)
+
+  
+  
+
+  
+
+});
+app.post("/add/", (req, res) => {
+
+  const data={
+    id:req.body.id,
+    name:req.body.name,
+    age:req.body.age,
+    gender:req.body.gender,
+    email:req.body.email
+  }
+  postJson.push(data);
+  res.send(200);
+  res.end();
+
+  
+
+});
+
+app.patch("/edit/:id", (req, res) => {
+const id=req.param.id
+
+console.log("id",id);
+
+ const result=postJson.filter((data)=>{
+   if(data.id==id){
+     data.name=req.body.name,
+     data.age=req.body.age,
+     data.email=req.body.email
+     return data.name
+      console.log("data",data)
+   }
+ })
+ 
+ res.json(result);
+ res.status(200)
+
+  
+
+});
+
+
+//write the code for routes here
+
+module.exports = app;
+
+
+
+doctype html
+html
+head
+title Jade Template Engine
+body
+    h1 Conditions and Loops in Jade
+    -var Students=["Athul", "Ramij", "Nil", "Satyaki", "Souvik"]
+    -var Teachers =["Swarnali", "Paromita", "Poulomi", "sreejukta"]
+    -var option=option
+    if(option==='teachers')
+    ol
+        each item in Teachers
+            li each name in Teachers #{item}
+    else if(option==='students')
+    ol
+        each item in Students
+            li each name in Students #{item}
+    else
+    p You have entered wrong option!
+
+ 
